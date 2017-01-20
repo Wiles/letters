@@ -9,4 +9,4 @@ RUN pip install -r requirements.txt
 
 ADD letters.py .
 
-ENTRYPOINT ["python", "./letters.py"]
+CMD ["python", "-u", "./letters.py"]

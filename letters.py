@@ -11,6 +11,11 @@ load_dotenv(find_dotenv())
 
 def process_comment(db, comment):
     """Add comment to database."""
+    print(comment.subreddit)
+    print(comment.author)
+    print(comment.body)
+    print(comment.id)
+    print('-----')
     db.upsert(
         'comment',
         id=comment.id,
