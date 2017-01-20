@@ -16,12 +16,14 @@ def process_comment(db, comment):
     print(comment.body)
     print(comment.id)
     print('-----')
+
     db.upsert(
-        'comment',
-        id=comment.id,
-        body=comment.body,
-        author=comment.author,
-        subreddit=comment.subreddit
+        'comment', {
+            'id': comment.id,
+            'body': comment.body,
+            'author': comment.author,
+            'subreddit': comment.subreddit
+        }
     )
 
 
