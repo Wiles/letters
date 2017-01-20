@@ -1,0 +1,12 @@
+FROM python:3.6-alpine
+
+
+RUN apk update && apk add musl-dev && apk add gcc && apk add postgresql-dev
+
+ADD requirements.txt .
+
+RUN pip install -r requirements.txt
+
+ADD letters.py .
+
+ENTRYPOINT ["python", "./letters.py"]
