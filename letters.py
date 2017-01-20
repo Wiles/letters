@@ -3,6 +3,7 @@ import praw
 
 from pg import DB
 from time import sleep
+import datetime as DT
 from os import environ as config
 from dotenv import load_dotenv, find_dotenv
 
@@ -15,6 +16,7 @@ def process_comment(db, comment):
     print(comment.author)
     print(comment.body)
     print(comment.id)
+    print(comment.created)
     print('-----')
 
     db.upsert(
@@ -22,7 +24,8 @@ def process_comment(db, comment):
             'id': comment.id,
             'body': comment.body,
             'author': comment.author,
-            'subreddit': comment.subreddit
+            'subreddit': comment.subreddit,
+            'create_at': DT.datetime.utcfromtimestamp(comment.created)
         }
     )
 
