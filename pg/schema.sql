@@ -5,3 +5,8 @@ CREATE TABLE comment (
     subreddit   TEXT NOT NULL,
     create_at   timestamp DEFAULT current_timestamp NOT NULL
 );
+
+CREATE TABLE letter (
+  id INT PRIMARY KEY,
+  body TEXT NOT NULL
+)
